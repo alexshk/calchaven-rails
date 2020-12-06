@@ -1,0 +1,15 @@
+header.page {
+  padding-bottom: 1rem;
+  padding-top: 0;
+}
+header.page nav {
+  margin-bottom: 1rem;
+}
+main.wide {
+  max-width:none;
+  padding:0 1rem;
+  margin:0;
+}
+.turbolinks-progress-bar {
+  background-color: var(--color-secondary);
+}

@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CalchavenRails</title>
+    <title><%= @title ? "#{@title} - " : ""%>CalcHaven: A forest of shareable calculators</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <%= yield :head %>
   </head>
 
   <body>
+    <header class="page" id="page-header" data-turbolinks-permanent>
+      <%= svelte_component :Nav, {}, {prerender: !xhr?}  %>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <hr>
+      <p>Made by <a href="https://letterblock.com">Joshua Paine</a></p>
+      <br> 
+    </footer>
   </body>
 </html>
