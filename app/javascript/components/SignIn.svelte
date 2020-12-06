@@ -4,7 +4,7 @@ import apikit from '../apikit.js'
 
 export let focus = false
 export let create = false
-let form, name, email, password, wantsEmail
+let form, name, email, password, wants_email
 
 $:{
   if(focus && form){
@@ -19,7 +19,7 @@ function toggle(){
 }
 function onSubmit(){
   if(create){
-    doCreate({name,email,password,wantsEmail})
+    doCreate({name,email,password,wants_email})
   } else {
     doLogin({email,password})
   }
@@ -36,7 +36,7 @@ function onSubmit(){
   <label for="password">Password</label>
   <input type="password" id="password" bind:value={password}>
   {#if create}
-    <div class="checkbox-row"><input type="checkbox" id="subscribe" bind:checked={wantsEmail}><label for="subscribe" class="subtle">Send me email when there are new or improved calculators (needs a real email address)</label></div>
+    <div class="checkbox-row"><input type="checkbox" id="subscribe" bind:checked={wants_email}><label for="subscribe" class="subtle">Send me email when there are new or improved calculators (needs a real email address)</label></div>
     {#if $doCreate.error}<p class="error">{$doCreate.error}</p>{/if}
     <button type="submit">Create Account</button>
     <p>Already have an account? <a href="." on:click|preventDefault={toggle}>Sign in</a></p>

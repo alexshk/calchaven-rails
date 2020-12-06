@@ -5,6 +5,11 @@
   import { user } from '../stores.js'
   import apikit from '../apikit.js'
 
+  export let currentUser
+  if(currentUser){
+    $user = currentUser
+  }
+
   const logout = apikit.del("api/session").store(user,()=>null)
 </script>
 

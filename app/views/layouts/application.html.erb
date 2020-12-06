@@ -15,7 +15,7 @@
 
   <body>
     <header class="page" id="page-header" data-turbolinks-permanent>
-      <%= svelte_component :Nav, {}, {prerender: !xhr?}  %>
+      <%= svelte_component :Nav, {currentUser:current_user&.as_json}, {prerender: !xhr?}  %>
     </header>
 
     <%= yield %>
